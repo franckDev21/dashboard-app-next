@@ -9,6 +9,16 @@ export type User = {
   password: string;
 };
 
+export type UserProfil = {
+  id: string;
+  firstname: string;
+  lastname: string;
+  email: string;
+  password: string;
+  avatar: string;
+  pseudo: string;
+};
+
 export type Customer = {
   id: string;
   name: string;
