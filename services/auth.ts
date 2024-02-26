@@ -6,7 +6,7 @@ import httpClient from './http';
 
 export async function getUser(email: string): Promise<UserProfil | undefined> {
   try {
-    const user = await httpClient.post<UserProfil>(api.user.getUserWithEmail,{email:email})
+    const user = await httpClient.post<UserProfil>(api.user.getUserWithEmail,{email})
     return user.data
   } catch (error) {
     console.error('Failed to fetch user:', error);
@@ -16,7 +16,7 @@ export async function getUser(email: string): Promise<UserProfil | undefined> {
 
 export async function login(email: string, password: string): Promise<UserProfil | undefined> {
   try {
-    const user = await httpClient.post<UserProfil>(api.auth.login,{email: email, password: password})
+    const user = await httpClient.post<UserProfil>(api.auth.login,{email, password})
     return user.data
   } catch (error) {
     console.error('Failed to fetch user:', error);

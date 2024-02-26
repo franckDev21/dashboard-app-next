@@ -3,11 +3,22 @@ import Credentials from 'next-auth/providers/credentials';
 import { authConfig } from './auth.config';
 import { z } from 'zod';
 import { login } from '@/services/auth';
- 
+import GithubProvider from 'next-auth/providers/github'
+import { PrismaAdapter } from "@auth/prisma-adapter"
+import prisma from '@/app/lib/prisma';
+
+const githubId = process.env.GITHUB_ID
+const githubSecret = process.env.GITHUB_SECRET
+
  
 export const { auth, signIn, signOut } = NextAuth({
   ...authConfig,
+  adapter: PrismaAdapter(prisma),
   providers: [
+    GithubProvider({
+      clientId: githubId,
+      clientSecret: githubSecret
+    }),
     Credentials({
       async authorize(credentials) {
         const parsedCredentials = z
