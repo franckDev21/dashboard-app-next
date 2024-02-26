@@ -136,3 +136,19 @@ export async function authenticate(
     throw error;
   }
 }
+
+export async function authenticatByGithub() {
+  try {
+    await signIn('github');
+  } catch (error) {
+    if (error instanceof AuthError) {
+      switch (error.type) {
+        case 'CredentialsSignin':
+          return 'Invalid credentials.';
+        default:
+          return 'Something went wrong.';
+      }
+    }
+    throw error;
+  }
+}

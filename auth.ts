@@ -7,8 +7,8 @@ import GithubProvider from 'next-auth/providers/github'
 import { PrismaAdapter } from "@auth/prisma-adapter"
 import prisma from '@/app/lib/prisma';
 
-const githubId = process.env.GITHUB_ID
-const githubSecret = process.env.GITHUB_SECRET
+const githubId = process.env.AUTH_GITHUB_ID
+const githubSecret = process.env.AUTH_GITHUB_SECRET
 
  
 export const { auth, signIn, signOut } = NextAuth({
@@ -17,7 +17,8 @@ export const { auth, signIn, signOut } = NextAuth({
   providers: [
     GithubProvider({
       clientId: githubId,
-      clientSecret: githubSecret
+      clientSecret: githubSecret,
+      name: 'github'
     }),
     Credentials({
       async authorize(credentials) {
