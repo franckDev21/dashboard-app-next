@@ -11,7 +11,7 @@ export default function GithubLoginButton() {
       className='w-full'
       onClick={async () => {
         await authenticatByGithub();
-      }}
+      }} 
     >
       <span>Login with github</span>
     </Button>
