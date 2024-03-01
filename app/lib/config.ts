@@ -10,6 +10,7 @@ export const api = {
   auth: {
     login: `${BASE_API_URL}/login`,
     register: `${BASE_API_URL}/register`,
+    loginWithGoogle: `${BASE_API_URL}/google-login`,
   },
   user: {
     // getUserWithEmail: (email: string) => `${BASE_API_URL}/${email}/get-user-with-email`

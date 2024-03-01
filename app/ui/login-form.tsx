@@ -11,7 +11,7 @@ import { Button } from './button';
 import { useFormState, useFormStatus } from 'react-dom';
 import { authenticate } from '@/app/lib/actions';
 import Spinner from '@/components/ui/spinner';
-import GithubLoginButton from '@/components/ui/github-login-button';
+import GoogleLoginButton from '@/components/ui/google-login-button';
 
 export default function LoginForm() {
   const [errorMessage, dispatch] = useFormState(authenticate, undefined);
@@ -65,7 +65,7 @@ export default function LoginForm() {
         </div>
         <div className="space-y-2">
         <LoginButton />
-        <GithubLoginButton />
+        <GoogleLoginButton />
         </div>
         <div
           className="flex h-8 items-end space-x-1"

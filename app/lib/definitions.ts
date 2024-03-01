@@ -10,14 +10,26 @@ export type User = {
 };
 
 export type UserProfil = {
-  id: string;
+  // id: string;
   firstname: string;
   lastname: string;
   email: string;
   password: string;
   avatar: string;
   pseudo: string;
+  access_token: string;
 };
+
+export type GoogleUserData = {
+  id: string;
+  email: string;
+  verified_email: boolean;
+  name: string;
+  given_name: string;
+  family_name: string;
+  picture: string;
+  locale: string;
+}
 
 export type Customer = {
   id: string;
